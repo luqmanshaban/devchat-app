@@ -1,0 +1,144 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sliderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.slider {
+    position: relative;
+    height: 400px;
+    width: auto;
+    overflow: hidden;
+    z-index: 10;
+}
+
+@media only screen and (max-width: 375px) {
+    .slider {
+        /* height: 400px; */
+        width: auto;
+        padding: 20px;
+    }
+    
+}
+
+.image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    willChange: transform, opacity;
+}
+
+.image:hover {
+    cursor: grab;
+}
+
+.image:active {
+    cursor: grabbing;
+}
+
+.buttons {
+    margin-top: 12px;
+}
+
+.buttons button {
+    outline: none;
+    border: none;
+    user-select: none;
+    padding: 10px 12px;
+    transform: skewY(-5deg) rotate(5deg);
+    background-color: #1f1f1f;
+    font-family: inherit;
+    font-size: inherit;
+    color: white;
+    transition: 0.07s ease-out transform;
+}
+
+.buttons button:first-of-type {
+    margin-right: 15px;
+}
+
+.buttons button:hover {
+    cursor: pointer;
+}
+
+.buttons button:active {
+    transform: scale(0.85) skewY(-5deg) rotate(5deg);
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+}
+
+.thumbnailContainer {
+    position: relative;
+    height: 120px;
+    width: 90px;
+}
+
+@media only screen and (max-width: 375px) {
+    .thumbnailContainer {
+        height: 70px;
+        width: 50px;
+    }
+}
+
+.thumbnailContainer:hover {
+    cursor: pointer;
+}
+
+.thumbnailContainer:not(:last-of-type) {
+    margin-right: 5px;
+}
+
+.thumbnailContainer img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.activeIndicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: #1f1f1f;
+    transition: 1s cubic-bezier(0.56, 0.03, 0.12, 1.04) transform;
+}
+
+.activeIndicator.active {
+    transform: scaleX(1);
+}
