@@ -61,6 +61,8 @@ pnpm dev
 
 Both client and server are configured for deployment on **Vercel**.
 
+## Demo
+<a href="https://devchat.tanelt.com" target="_blank">Live site</a>
 ---
 
 Contributions and feedback are welcome! See the individual README files in the `/client` and `/server` directories for more detailed setup and usage instructions.
